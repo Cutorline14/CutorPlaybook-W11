@@ -10,9 +10,11 @@ actions:
       bcdedit /set description """Windows $(('10', '11')[[int]([System.Environment]::OSVersion.Version.Build -ge 22000)]) $version"""
 
       Write-Output 'Setting other versioned OEM information...'
-      $reportedVer = """Cutor Playbook"""
+      $reportedVer = """Windows 11 $version"""
       # Shows in Settings
       Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation' -Name 'Model' -Value $reportedVer -Force
+      # Shows in winver
+      Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name 'RegisteredOrganization' -Value '' -Force
     wait: true
   - !registryValue:
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
@@ -28,10 +30,5 @@ actions:
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
     value: 'SupportPhone'
     data: 'https://cutorline14.github.io/'
-    type: REG_SZ
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Cutor'
-    value: 'WinreFallbackFixed'
-    data: '1'
     type: REG_SZ
 

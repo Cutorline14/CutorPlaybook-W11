@@ -1,9 +1,51 @@
 ---
 title: Disable Aero Shake
-description: Disables Aero Shake, which is where you shake a window and all other Windows minimise, as most of the time it is accidently triggered
+description: Disables Aero Shake, and also disables extra Snap sub-options that are usually triggered accidentally.
 actions:
-  - !registryValue:
+  # Desactivar Aero Shake (DisallowShaking)
+  - !registryValue
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     value: 'DisallowShaking'
     data: '1'
     type: REG_DWORD
+
+  # When I snap a window, suggest what I can snap next to it
+  - !registryValue
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'SnapAssist'
+    data: '0'
+    type: REG_DWORD
+
+  # Show snap layouts when I hover over a window's maximize button
+  - !registryValue
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'EnableSnapAssistFlyout'
+    data: '0'
+    type: REG_DWORD
+
+  # Show snap layouts when I drag a window to the top of my screen
+  - !registryValue
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'SnapBar'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'EnableSnapBar'
+    data: '0'
+    type: REG_DWORD
+
+  # Show my snapped windows when I hover over taskbar apps, in Task View, and when I press Alt+Tab
+  - !registryValue
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'EnableTaskGroups'
+    data: '0'
+    type: REG_DWORD
+
+  # When I drag a window, let me snap it without dragging all the way to the screen edge
+  - !registryValue
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'DITest'
+    data: '0'
+    type: REG_DWORD
+

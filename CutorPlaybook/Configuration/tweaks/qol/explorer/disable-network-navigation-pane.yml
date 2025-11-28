@@ -9,7 +9,7 @@ actions:
   #   data: '0'
   #   type: REG_DWORD
   - !cmd:
-    command: 'reg import "CutorDesktop\3. General Configuration\File Sharing\Network Navigation Pane\Disable Network Navigation Pane (default).reg"'
+    command: '"CutorDesktop\3. General Configuration\File Sharing\Network Navigation Pane\Disable Network Navigation Pane (default).cmd" /silent'
     exeDir: true
     wait: true
     runas: currentUserElevated

@@ -1,7 +1,7 @@
 $ProgressPreference = 'SilentlyContinue'
 
 $windir = [Environment]::GetFolderPath('Windows')
-& "$windir\CutorModules\initPowerShell.ps1"
+& "$windir\AtlasModules\initPowerShell.ps1"
 
 function Write-BulletPoint($message) {
 	Write-Host " - " -ForegroundColor Green -NoNewline

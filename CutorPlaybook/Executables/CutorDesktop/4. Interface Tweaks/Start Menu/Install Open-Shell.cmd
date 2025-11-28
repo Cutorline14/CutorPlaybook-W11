@@ -15,7 +15,7 @@ fltmc > nul 2>&1 || (
 call "%windir%\CutorModules\Scripts\wingetCheck.cmd"
 if %ERRORLEVEL% NEQ 0 exit /b 1
 
-echo Downloading Open Shell...
+echo Downloading Open-Shell...
 echo]
 
 :: Download and install Open-Shell

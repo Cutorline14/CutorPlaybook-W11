@@ -1,0 +1,44 @@
+[Theme]
+DisplayName=Cutor Dark
+ThemeId={5F8F7C9B-455A-4BDC-BE7F-1B70AE765E97}
+
+[Control Panel\Desktop]
+Wallpaper=%windir%\CutorModules\Wallpapers\cutor-dark.png
+Pattern=
+MultimonBackgrounds=0
+PicturePosition=4
+WindowsSpotlight=0
+
+[Control Panel\Cursors]
+AppStarting=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_working.ani
+Arrow=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_arrow.cur
+Hand=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_link.cur
+Help=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_helpsel.cur
+No=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_unavail.cur
+NWPen=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_pen.cur
+SizeAll=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_move.cur
+SizeNESW=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_nesw.cur
+SizeNS=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_ns.cur
+SizeNWSE=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_nwse.cur
+SizeWE=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_ew.cur
+UpArrow=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_up.cur
+Wait=%windir%\CutorDesktop\10. Cutor Tweaks\cursor\aero_black_busy.ani
+DefaultValue=Windows Black
+Crosshair=
+IBeam=
+
+[Sounds]
+SchemeName=No Sounds
+
+[VisualStyles]
+Path=%windir%\resources\themes\Aero\Aero.msstyles
+ColorStyle=NormalColor
+Size=NormalSize
+AutoColorization=0
+ColorizationColor=0XC44A51A8
+SystemMode=Dark
+AppMode=Dark
+VisualStyleVersion=10
+
+[MasterThemeSelector]
+MTSM=RJSPBS

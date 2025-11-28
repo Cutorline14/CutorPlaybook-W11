@@ -6,3 +6,4 @@ actions:
     command: '"CutorDesktop\6. Advanced Configuration\Services\Printing\Disable Printing.cmd" /justcontext'
     exeDir: true
     wait: true
+    runas: currentUserElevated

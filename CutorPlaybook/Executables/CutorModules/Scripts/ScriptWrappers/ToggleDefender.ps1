@@ -87,7 +87,7 @@ function Menu {
 
         # Documentation
         3 {
-            Start-Process "https://cutorline14.github.io/"
+            Start-Process "https://docs.atlasos.net/getting-started/post-installation/atlas-folder/security/#defender"
 			Menu
         }
 

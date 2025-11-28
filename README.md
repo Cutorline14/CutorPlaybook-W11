@@ -30,8 +30,8 @@ Permite configurar opciones de seguridad como Windows Defender, SmartScreen, act
 ### ✅ Usabilidad Mejorada
 Se aplican configuraciones y ajustes que facilitan el uso diario de Windows, incluyendo la eliminación de aplicaciones innecesarias, ajustes de interfaz y mejoras de experiencia.
 
-### 💻 Solo para Windows 10
-Cutor Playbook **solo es compatible con Windows 10**.  
+### 💻 Solo para Windows 11
+Cutor Playbook **solo es compatible con Windows 11**.  
 
 ### 🔍 Transparencia
 Aunque el proyecto contiene binarios de terceros necesarios para las modificaciones, la mayor parte del Playbook es transparente y auditable, siguiendo la filosofía de **AtlasOS**.  

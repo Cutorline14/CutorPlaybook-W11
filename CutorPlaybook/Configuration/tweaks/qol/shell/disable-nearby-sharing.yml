@@ -1,6 +1,6 @@
 ---
 title: Disable Shared Experiences
-description: Disables 'Shared Experiences', which is a way of sharing items between advices for privacy and QoL
+description: Disables 'Shared Experiences', which is a way of sharing items between devices for privacy and QoL
 actions:
   # https://www.elevenforum.com/t/turn-on-or-off-nearby-sharing-in-windows-11.2644/
   - !registryValue:
@@ -8,13 +8,19 @@ actions:
     value: 'BluetoothLastDisabledNearShare'
     data: '0'
     type: REG_DWORD
+    
+    
   - !registryValue:
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CDP'
     value: 'NearShareChannelUserAuthzPolicy'
     data: '0'
     type: REG_DWORD
+    
+    
   - !registryValue:
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\CDP'
     value: 'CdpSessionUserAuthzPolicy'
     data: '1'
     type: REG_DWORD
+    
+    

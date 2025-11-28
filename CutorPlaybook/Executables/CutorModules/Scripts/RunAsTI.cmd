@@ -6,7 +6,7 @@ goto RunAsTI-Elevate
 ----------------------------------------
 [CREDITS]
 - Adapted from https://github.com/AveYo/LeanAndMean
-- Revised and customized by Cutor
+- Revised and customized for Cutor by he3als & Xyueta
 - Added error checking, an interface and quotes support
 
 [FEATURES]
@@ -52,7 +52,7 @@ goto RunAsTI-Elevate
 :RunAsTI-Fail
 echo]
 echo Executing the script as TrustedInstaller failed with the RunAsTI snippet.
-echo An unknown error has occured, please report this (with the error) or attempt to elevate again!
+echo An unknown error has occurred, please report this (with the error) or attempt to elevate again!
 echo]
 echo Press any key to attempt to elevate again...
 pause > nul

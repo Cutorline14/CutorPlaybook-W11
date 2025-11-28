@@ -1,3 +1,7 @@
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { 
+  Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit 
+}
+
 $windir = [Environment]::GetFolderPath('Windows')
 & "$windir\CutorModules\initPowerShell.ps1"
 $cutorDesktop = "$windir\CutorDesktop"
@@ -18,10 +22,11 @@ Write-Host "You'll be logged out in 10 to 20 seconds, and once you login again, 
 
 # Disable Windows 11 context menu & 'Gallery' in File Explorer
 if ([System.Environment]::OSVersion.Version.Build -ge 22000) {
-    reg import "$cutorDesktop\4. Interface Tweaks\Context Menus\Windows 11\Old Context Menu (default).reg" *>$null
-    reg import "$cutorDesktop\4. Interface Tweaks\File Explorer Customization\Gallery\Disable Gallery (default).reg" *>$null
+    & "$cutorDesktop\4. Interface Tweaks\Context Menus\Windows 11\Old Context Menu (default).cmd" /silent
+    & "$cutorDesktop\4. Interface Tweaks\File Explorer Customization\Gallery\Disable Gallery (default).cmd" /silent
 
     # Set ThemeMRU (recent themes)
+    Set-Theme -Path "$([Environment]::GetFolderPath('Windows'))\Resources\Themes\cutor-dark.theme"
     Set-ThemeMRU | Out-Null
 }
 
@@ -29,29 +34,23 @@ if ([System.Environment]::OSVersion.Version.Build -ge 22000) {
 Set-LockscreenImage
 
 # Disable 'Network' in navigation pane
-reg import "$cutorDesktop\3. General Configuration\File Sharing\Network Navigation Pane\Disable Network Navigation Pane (default).reg" *>$null
+& "$cutorDesktop\3. General Configuration\File Sharing\Network Navigation Pane\Disable Network Navigation Pane (default).cmd" /silent
 
 # Disable Automatic Folder Discovery
-reg import "$cutorDesktop\4. Interface Tweaks\File Explorer Customization\Automatic Folder Discovery\Disable Automatic Folder Discovery (default).reg" *>$null
+& "$cutorDesktop\4. Interface Tweaks\File Explorer Customization\Automatic Folder Discovery\Disable Automatic Folder Discovery (default).cmd" /silent
 
 # Set visual effects
 & "$cutorDesktop\4. Interface Tweaks\Visual Effects (Animations)\Cutor Visual Effects (default).cmd" /silent
 
-# Pin 'Videos' and 'Music' folders to Home/Quick Acesss
-$o = new-object -com shell.application
-$currentPins = $o.Namespace('shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}').Items() | ForEach-Object { $_.Path }
-foreach ($path in @(
-    [Environment]::GetFolderPath('MyVideos'),
-    [Environment]::GetFolderPath('MyMusic')
-)) {
-    if ($currentPins -notcontains $path) {
-        $o.Namespace($path).Self.InvokeVerb('pintohome')
-    }
-}
+# Set taskbar pins 
+$valueName = "Browser"
+$value = Get-ItemProperty -Path "HKLM:\SOFTWARE\Cutor\SetupOptions" -Name $valueName -ErrorAction Stop
+$Browser = $value.$valueName
+$Browser
 
-# Set taskbar search box to an icon
+& "$cutorModules\Scripts\taskbarPins.ps1" $Browser
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Value 1
 
 # Leave
-Start-Sleep 5
+Start-Sleep 5 
 logoff

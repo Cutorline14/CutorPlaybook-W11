@@ -11,13 +11,12 @@ fltmc > nul 2>&1 || (
 	exit /b
 )
 
-echo Before running this, please see the Cutor documentation, linked in the folder.
-pause
-echo]
+if not "%~1"=="/silent" call "%windir%\CutorModules\Scripts\serviceWarning.cmd" %*
 
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "GlobalTimerResolutionRequests" /t REG_DWORD /d "1" /f > nul
 schtasks /create /tn "Force Timer Resolution" /xml "%windir%\CutorModules\Other\Force Timer Resolution.xml" /f > nul
 schtasks /run /tn "Force Timer Resolution" > nul
+if "%~1"=="/silent" exit /b
 
 echo Finished, please reboot your device for changes to apply.
 pause
